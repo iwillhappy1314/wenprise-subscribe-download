@@ -1,0 +1,75 @@
+<?php
+
+namespace SubscribeDownload;
+
+use DrewM\MailChimp\MailChimp;
+
+
+class Init
+{
+
+    /**
+     * constructor.
+     */
+    public function __construct()
+    {
+        $classes = [
+            Frontend::class,
+            Fields::class,
+        ];
+
+        foreach ($classes as $class) {
+            new $class;
+        }
+
+        add_action('wp_ajax_wsd_subscribe', [$this, 'wsd_subscribe']);
+        add_action('wp_ajax_nopriv_wsd_subscribe', [$this, 'wsd_subscribe']);
+
+        add_action('wp_footer', [$this, 'load_modal_template']);
+    }
+
+
+    /**
+     * 订阅邮件列表
+     *
+     * @return void
+     */
+    function wsd_subscribe()
+    {
+
+        $MailChimp = new MailChimp('a1544155a6a6caf7f091d7158558ac34-us19');
+        $post_id   = $_POST[ 'post_id' ] ?? null;
+
+        if (isset($_POST[ 'email' ])) {
+            $list_id = '34e583dfde';
+
+            $result = $MailChimp->post("lists/$list_id/members", [
+                'email_address' => $_POST[ 'email' ],
+                'status'        => 'subscribed',
+            ]);
+
+            if ($result) {
+                $file_id = get_post_meta($post_id, '_attachment', true);
+                wp_send_json_success([
+                    'result' => 'success',
+                    'url'    => wp_get_attachment_url($file_id),
+                    'name'   => basename(get_attached_file($file_id)),
+                ]);
+            }
+        }
+
+    }
+
+
+    /**
+     * 加载Modal模版
+     *
+     * @return void
+     */
+    function load_modal_template()
+    {
+        $helper = new \WenpriseTemplateHelper('wenprise', WENPRISE_SUBSCRIBE_DOWNLOAD_PATH . 'templates/');
+        $helper->get_template('wsd-modal.php', '', 'wenprise', WENPRISE_SUBSCRIBE_DOWNLOAD_PATH . 'templates/');
+    }
+
+}

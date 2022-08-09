@@ -1,0 +1,28 @@
+{
+  "main.css": "frontend/main-0503a01a.css",
+  "main.css.map": "frontend/main-0503a01a.css.map",
+  "main.js": "frontend/main-88e7f8b4.js",
+  "main.js.map": "frontend/main-88e7f8b4.js.map",
+  "runtime.js": "frontend/runtime-0fc973c7.js",
+  "runtime.js.map": "frontend/runtime-0fc973c7.js.map",
+  "wpackioEp": {
+    "main": {
+      "assets": {
+        "js": [
+          "frontend/runtime-0fc973c7.js",
+          "frontend/main-88e7f8b4.js"
+        ],
+        "js.map": [
+          "frontend/runtime-0fc973c7.js.map",
+          "frontend/main-88e7f8b4.js.map"
+        ],
+        "css": [
+          "frontend/main-0503a01a.css"
+        ],
+        "css.map": [
+          "frontend/main-0503a01a.css.map"
+        ]
+      }
+    }
+  }
+}

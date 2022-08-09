@@ -1,0 +1,46 @@
+{
+  "name": "wenprise/bb",
+  "description": "Plugin developed by wenprise",
+  "require": {
+    "php": ">=7.1",
+    "ext-json": "*",
+    "symfony/translation": "^4.4",
+    "wenprise/wp-db-base": "^1.2",
+    "wenprise/wordpress-dispatcher": "^2.1",
+    "wenprise/eloquent": "^0.1.2",
+    "wpackio/enqueue": "^3.4",
+    "htmlburger/carbon-fields": "^3.3",
+    "drewm/mailchimp-api": "^2.5",
+    "wenprise/templates-helper": "^0.3.0"
+  },
+  "require-dev": {
+    "wenprise/debug": "^1.0",
+    "brianhenryie/strauss": "^0.5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SubscribeDownload\\": "src/"
+    }
+  },
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Amos Lee",
+      "email": "iwillhappy1314@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true
+    }
+  },
+  "scripts": {
+    "strauss": [
+      "@php strauss.phar"
+    ]
+  }
+}

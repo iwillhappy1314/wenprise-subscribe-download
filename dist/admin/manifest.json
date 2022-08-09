@@ -1,0 +1,38 @@
+{
+  "admin/assets/element-icons.ttf": "admin/assets/element-icons-45201881.ttf",
+  "admin/assets/element-icons.woff": "admin/assets/element-icons-313f7dac.woff",
+  "main.css": "admin/main-9d135ac7.css",
+  "main.css.map": "admin/main-9d135ac7.css.map",
+  "main.js": "admin/main-2b04caa8.js",
+  "main.js.map": "admin/main-2b04caa8.js.map",
+  "runtime.js": "admin/runtime-218f1314.js",
+  "runtime.js.map": "admin/runtime-218f1314.js.map",
+  "vendors~main.css": "admin/vendors~main-265ddaae.css",
+  "vendors~main.css.map": "admin/vendors~main-265ddaae.css.map",
+  "vendors~main.js": "admin/vendors~main-c7e840ca.js",
+  "vendors~main.js.map": "admin/vendors~main-c7e840ca.js.map",
+  "wpackioEp": {
+    "main": {
+      "assets": {
+        "js": [
+          "admin/runtime-218f1314.js",
+          "admin/vendors~main-c7e840ca.js",
+          "admin/main-2b04caa8.js"
+        ],
+        "js.map": [
+          "admin/runtime-218f1314.js.map",
+          "admin/vendors~main-c7e840ca.js.map",
+          "admin/main-2b04caa8.js.map"
+        ],
+        "css": [
+          "admin/vendors~main-265ddaae.css",
+          "admin/main-9d135ac7.css"
+        ],
+        "css.map": [
+          "admin/vendors~main-265ddaae.css.map",
+          "admin/main-9d135ac7.css.map"
+        ]
+      }
+    }
+  }
+}
