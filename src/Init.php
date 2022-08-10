@@ -33,15 +33,16 @@ class Init
      * 订阅邮件列表
      *
      * @return void
+     * @throws \Exception
      */
     function wsd_subscribe()
     {
 
-        $MailChimp = new MailChimp('a1544155a6a6caf7f091d7158558ac34-us19');
+        $MailChimp = new MailChimp(get_option('_mailchimp_api_key'));
         $post_id   = $_POST[ 'post_id' ] ?? null;
 
         if (isset($_POST[ 'email' ])) {
-            $list_id = '34e583dfde';
+            $list_id = get_option('_mailchimp_list_id');
 
             $result = $MailChimp->post("lists/$list_id/members", [
                 'email_address' => $_POST[ 'email' ],
@@ -69,7 +70,7 @@ class Init
     function load_modal_template()
     {
         $helper = new \WenpriseTemplateHelper('wenprise', WENPRISE_SUBSCRIBE_DOWNLOAD_PATH . 'templates/');
-        $helper->get_template('wsd-modal.php', '', 'wenprise', WENPRISE_SUBSCRIBE_DOWNLOAD_PATH . 'templates/');
+        $helper->get_template('wsd-modal.php', '');
     }
 
 }
