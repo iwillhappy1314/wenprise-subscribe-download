@@ -39,7 +39,7 @@ class Init
     {
 
         $MailChimp = new MailChimp(get_option('_mailchimp_api_key'));
-        $post_id   = $_POST[ 'post_id' ] ?? null;
+        $file_id   = $_POST[ 'post_id' ] ?? null;
 
         if (isset($_POST[ 'email' ])) {
             $list_id = get_option('_mailchimp_list_id');
@@ -50,7 +50,6 @@ class Init
             ]);
 
             if ($result) {
-                $file_id = get_post_meta($post_id, '_attachment', true);
                 wp_send_json_success([
                     'result' => 'success',
                     'url'    => wp_get_attachment_url($file_id),
